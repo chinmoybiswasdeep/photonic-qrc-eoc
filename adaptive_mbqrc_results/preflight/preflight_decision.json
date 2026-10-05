@@ -1,0 +1,178 @@
+{
+ "decision": "NO-GO",
+ "reasons": [
+  "critical gate failed: Kernel identifiability",
+  "critical gate failed: Structural distinction",
+  "preflight language: no advantage is 'established' by this run"
+ ],
+ "gates": [
+  {
+   "gate": "Source audit",
+   "requirement": "input implementations identified",
+   "evidence": "4 notebooks hashed; MB+CV sources identified=True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Physicality",
+   "requirement": "all critical state/channel tests pass",
+   "evidence": "P1:ok, P2:ok, P5:ok, P6:ok, P10:ok, P11:ok, P7a:ok, P7b:ok, P7c:ok, S8.NA0:ok, S8.CV0:ok, P3:ok, P4:ok, P8:ok, P9:ok",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Native-engine fidelity",
+   "requirement": "native and reference calculations agree",
+   "evidence": "P1:ok, P2:ok, P12:ok, P13:ok, N3a:ok, N3b:ok, N1:ok",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Zero-adaptivity nesting",
+   "requirement": "R_AD(g=0) = R_NA",
+   "evidence": "P7a trajectory identity, P7b total-variance identity, P7c ensemble",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Kernel identifiability",
+   "requirement": "chi_ad(g*) SNR >= 5.0, g=0 null |z|<3, methods agree",
+   "evidence": "g*=0.2, SNR=0.79, null z=0.42, N5a/N5b=ok",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Structural distinction",
+   "requirement": "exact exclusion for NA and CV + nonzero AD kernel",
+   "evidence": "NA/CV exact zeros=True; AD resolved=False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Negative controls",
+   "requirement": "effect absent when causal adaptivity is destroyed; equalized baselines at floor",
+   "evidence": "see \u00a711.2",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Resource matching",
+   "requirement": "comparison budgets matched (or normalized)",
+   "evidence": "matched rows=True; squeezing normalized via CV_photon and C7",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Pilot direction",
+   "requirement": "both primary differences have the predicted sign; no diverged unit at g*",
+   "evidence": "H_A -0.0003 [-0.0011,+0.0007], H_B -0.0017 [-0.0054,+0.0017]; futile=True; excluded units=2",
+   "status": "FAIL",
+   "critical": false
+  },
+  {
+   "gate": "Prospective power",
+   "requirement": "power at delta_min >= 0.9 (both, Holm)",
+   "evidence": "(1.000, 1.000) at n=150; n needed ~ 10",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "Runtime",
+   "requirement": "conservative projection <= 72 h",
+   "evidence": "expected 47.7 h, conservative 62.0 h",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "Reproducibility",
+   "requirement": "seeds and checkpointing validated",
+   "evidence": "N2:ok, N10:ok",
+   "status": "PASS",
+   "critical": true
+  }
+ ],
+ "lock": {
+  "stage": "preflight",
+  "created": "2026-10-03 07:56:13",
+  "N_main": 5,
+  "g_star": 0.2,
+  "chi_at_g_star": 1.0272851373400844e-06,
+  "chi_se_at_g_star": 1.3012066062332866e-06,
+  "g_edge_channel": null,
+  "g_edge_traj_CI": 0.7980307812558983,
+  "g_edge_traj_CR": null,
+  "g_chi_peak": 0.6,
+  "admissible_g": [
+   0.1,
+   0.2
+  ],
+  "witness_family": [
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    2
+   ]
+  ],
+  "readout_policy": "ridge, lambda grid [1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0], last 25% of train",
+  "shots_primary": 512,
+  "base_condition": {
+   "topology": "chain",
+   "T": 0.4,
+   "enc_scale": 1.0,
+   "squeezing_db": 15.0,
+   "loop_transmissivity": 1.0,
+   "detector_efficiency": 1.0,
+   "feedforward_gain_error": 0.0,
+   "angle_noise_rad": 0.0,
+   "cv_input_squeezing": 1.0
+  },
+  "preregistered": {
+   "witness_max_delay": 3,
+   "delta_min_A": 0.03,
+   "delta_min_B": 0.03,
+   "alpha": 0.05,
+   "power_target": 0.9,
+   "pessimistic_fraction": 0.5,
+   "kernel_snr_min": 5.0,
+   "channel_margin": 0.05,
+   "control_z_max": 3.0,
+   "zero_tol_rel": 1e-09,
+   "controller": "tanh",
+   "controller_scale": 1.0
+  },
+  "rule": "argmax chi_ad over admissible g>0",
+  "sha256": "ae0a747ad2d90ca68544400ae58297ec45ccbd6262ea9d715e533eb6e84c3469"
+ },
+ "mode": "preflight"
+}

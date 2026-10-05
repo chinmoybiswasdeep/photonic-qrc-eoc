@@ -1,0 +1,38 @@
+{
+ "calibration": {
+  "calibration": [
+   0,
+   1
+  ]
+ },
+ "exploration": {
+  "level-A screening": [
+   0,
+   1,
+   2
+  ],
+  "structural scan": [
+   0,
+   1
+  ]
+ },
+ "validation": {
+  "structural validation": [
+   0,
+   1
+  ]
+ },
+ "pilot": {
+  "task pilot": [
+   0,
+   1,
+   2
+  ]
+ },
+ "robustness": {
+  "robustness": [
+   0,
+   1
+  ]
+ }
+}

@@ -1,0 +1,263 @@
+{
+ "decision": "NO-GO",
+ "reasons": [
+  "critical gate failed: Stability",
+  "critical gate failed: Internal response",
+  "critical gate failed: Measurement visibility",
+  "critical gate failed: Regularization visibility",
+  "critical gate failed: Size replication",
+  "critical gate failed: No fixed-basis shortcut",
+  "critical gate failed: Structural lock",
+  "research_dryrun: control-flow validation only - this decision is not scientific"
+ ],
+ "gates": [
+  {
+   "gate": "Source audit",
+   "requirement": "source notebooks found and hashed",
+   "evidence": "5/5 present; predecessor parsed=True",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "Native fidelity",
+   "requirement": "native, adapter and reference agree",
+   "evidence": "V1 exact replay, V3, V4",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Causal validity",
+   "requirement": "adaptive graph follows MBQC flow",
+   "evidence": "V5 DAG + CV-flow certificate",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Zero-adaptivity nesting",
+   "requirement": "AD at g=0 equals NA",
+   "evidence": "V6 bitwise + ensemble",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Safe angles",
+   "requirement": "no singular homodyne angles",
+   "evidence": "V7 + scan min|sin theta|",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Physicality",
+   "requirement": "all states and measurements valid",
+   "evidence": "V9, V10, V11, V12, K8",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Stability",
+   "requirement": "escape upper bound below threshold at the lock",
+   "evidence": "no locked point",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Full Lyapunov spectrum",
+   "requirement": "full spectrum passes analytic tests",
+   "evidence": "L1-L7, L11, L12",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Spectrum convergence",
+   "requirement": "stable under length, QR interval and trajectories",
+   "evidence": "L7, L8, L9, L10",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "CI/CR separation",
+   "requirement": "both spectra implemented correctly",
+   "evidence": "L5 exact Jacobian; distinct CI/CR spectra (Fig. 6/7)",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Spectral boundary",
+   "requirement": "independently identified",
+   "evidence": "g_traj by T: {0.3: None, 0.6: 0.2}; FSS: insufficient sizes for finite-size scaling",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Internal response",
+   "requirement": "chi_int resolved (SNR >= 3, validation)",
+   "evidence": "SNR nan",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Measurement visibility",
+   "requirement": "chi_vis^wh SNR >= 5.0 (validation)",
+   "evidence": "SNR nan",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Regularization visibility",
+   "requirement": "response survives the fixed structural ridge",
+   "evidence": "chi_res/chi_vis = nan",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Size replication",
+   "requirement": "visible response replicates at N_second",
+   "evidence": "SNR nan",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "No fixed-basis shortcut",
+   "requirement": "fixed/iid/disconnected controls show no response",
+   "evidence": "K3 exact + structural controls",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Structural lock",
+   "requirement": "candidate chosen without task scores, not at grid edge",
+   "evidence": "(g*,T*)=(None,None); boundary=None",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "gate": "Resource matching",
+   "requirement": "passed or Pareto-qualified",
+   "evidence": "Pareto table (Fig. 22)",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "Research dry run",
+   "requirement": "complete research path works (same code hash)",
+   "evidence": "marker found",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "gate": "Pilot direction",
+   "requirement": "both primary effects positive",
+   "evidence": "Delta_A +0.0014, Delta_B -0.0010",
+   "status": "FAIL",
+   "critical": false
+  },
+  {
+   "gate": "Power",
+   "requirement": "power >= 0.9 at delta_min=0.020",
+   "evidence": "(np.float64(1.0), np.float64(1.0))",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "gate": "Runtime",
+   "requirement": "conservative estimate <= 72.0 h",
+   "evidence": "1230.9 h",
+   "status": "FAIL",
+   "critical": false
+  },
+  {
+   "gate": "Reproducibility",
+   "requirement": "seeds and checkpoints validated",
+   "evidence": "N2, N10",
+   "status": "PASS",
+   "critical": true
+  }
+ ],
+ "lock": {
+  "stage": "structural",
+  "g_star": null,
+  "T_star": null,
+  "reason": "no admissible g>0 with a resolved chi_vis^wh on the stable side",
+  "created": "2026-10-04 02:12:58",
+  "graph": "2 wires x 3 layers, in-layer chain C_Z (w=1.0)",
+  "sizes": {
+   "N_main": 2,
+   "N_second": 3,
+   "L": 3
+  },
+  "controller": "nearest-neighbour causal flow",
+  "spectral_boundary": "g_traj: lambda_1^CI = 0 (primary); g_contract, g_gap, g_purif reported",
+  "kernel_family": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "measurement_map": "B_meas = (1-T) x xx-block of the post-wire second moments (exact, fixed tap)",
+  "feature_set": "N(N+1)/2 tap second moments",
+  "witness": "(1/sqrt 6) sum P3(u_{k-tc}) P1(u_{k-tl}) over K*",
+  "noise": {
+   "shots": 64,
+   "squeezing_db": 12.0,
+   "loop_transmissivity": 1.0,
+   "detector_efficiency": 1.0,
+   "angle_jitter": 0.0,
+   "feedforward_gain_error": 0.0
+  },
+  "readout_policy": "ridge, lambda grid [1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0] chosen on the last 25% of train; degree-2 family on label-free PCA",
+  "sigma_sha256": "a887708205123b6025535d465e9afff685378b9e5ac2ac89bda895b1188878f6",
+  "preregistered": {
+   "theta_min": 0.15,
+   "controller": "nearest-neighbour causal flow",
+   "witness_max_delay": 2,
+   "escape_cov": 1000000.0,
+   "escape_mean": 1000.0,
+   "escape_pmax": 0.01,
+   "channel_margin": 0.02,
+   "snr_min": 5.0,
+   "whitening_eps_rel": 1e-06,
+   "ridge_struct_rel": 0.001,
+   "zero_tol_rel": 1e-09,
+   "alpha": 0.05,
+   "power_target": 0.9,
+   "delta_min_floor": 0.02
+  },
+  "sha256": "9bebf18174a4604cb9cf002df68501fe37b27e80ce2018da74ea52fbe76e2a26"
+ },
+ "structural": {
+  "1 native/reference agreement": true,
+  "2 exact zero-adaptivity nesting": true,
+  "3 valid within-pattern causal ordering": true,
+  "4 full-horizon stability": false,
+  "5 safe-angle condition": true,
+  "6 full Lyapunov-spectrum validation": true,
+  "7 independent spectral boundary or resolved crossover": "True",
+  "8 nonzero internal adaptive response": false,
+  "9 chi_vis^wh SNR >= 5 (validation bank)": false,
+  "10 response replication at a second size": false,
+  "11 candidate not at the scanned-grid boundary": false,
+  "12 candidate chosen without task performance": false,
+  "13 research-dry-run passed (same code hash)": true
+ },
+ "mode": "research_dryrun"
+}

@@ -1,0 +1,23 @@
+{
+ "calibration": {
+  "calibration": [
+   0,
+   1,
+   2
+  ]
+ },
+ "exploration": {
+  "exploration": [
+   0,
+   1
+  ]
+ },
+ "validation": {
+  "structural-validation": [
+   0,
+   1,
+   2,
+   3
+  ]
+ }
+}

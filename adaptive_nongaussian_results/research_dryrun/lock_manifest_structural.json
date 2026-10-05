@@ -1,0 +1,45 @@
+{
+ "level": "B",
+ "variant": "V1",
+ "gamma_star": 0.1,
+ "T_star": 0.4,
+ "cutoff": 16,
+ "second_size": {
+  "N": 2,
+  "D": 10
+ },
+ "condition": {
+  "squeezing_db": 12.0,
+  "enc_scale": 0.6,
+  "beta_scale": 0.5,
+  "loop_transmissivity": 0.98,
+  "layer_efficiency": 0.95,
+  "tap_efficiency": 0.95,
+  "homodyne_resolution": 0.01,
+  "ff_gain_error": 0.01,
+  "resource_squeezing_db": 6.0,
+  "resource_loss": 0.98,
+  "coupling_w": 0.5
+ },
+ "sigma": {
+  "m1": 4.136368514495393,
+  "filt": 2.327725543866509,
+  "byp": 2.3177567048752294
+ },
+ "witness_component": [
+  1,
+  0,
+  0
+ ],
+ "at_grid_boundary": true,
+ "shortlist": {
+  "(0.1, 0.4)": 0.4138826044200114,
+  "(0.2, 0.6)": 0.24094019556918445
+ },
+ "selection_rule": "max validated chi_wh^x among the two admissible scan points with the largest exploration chi_wh^x; no task data",
+ "config_sha256": "a9e94aa7c7e0b9e078ec66fd484d77908319f1ca90c4319171f38c4fc9c64eca",
+ "prereg_core_hash": "fbfaf08d8ea623f7be27b2974caf8cde07cc4c22d4e7c5c38141bd5b5c7ef82a",
+ "prefix_hash": "a9362ae815eaf5deffc06296a7eab4504619c25ff3ee093f70cc291266603960",
+ "mode": "research_dryrun",
+ "sha256": "1cdbd55374f1034d3e18729c9e9db10103611b7ad1408774dd5f6c962602a7f9"
+}

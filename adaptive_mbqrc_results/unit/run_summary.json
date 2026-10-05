@@ -1,0 +1,454 @@
+{
+ "mode": "unit",
+ "decision": null,
+ "verdict": "unit mode: no scientific conclusion",
+ "ladder": {
+  "0": {
+   "status": "established",
+   "evidence": "all cells executed"
+  },
+  "1": {
+   "status": "established",
+   "evidence": "41/41 tests passed; critical failures: none"
+  },
+  "2": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  },
+  "3": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  },
+  "4": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  },
+  "5": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  },
+  "6": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  },
+  "7": {
+   "status": "not evaluated (unit mode)",
+   "evidence": "unit mode draws no scientific conclusion"
+  }
+ },
+ "runtime": {},
+ "tests": [
+  {
+   "id": "P1",
+   "category": "physics",
+   "description": "PhotoGraphiQ channel = analytic sqrt(T eta_L) C_Z F D(s) (chain/ring, with loss); U symplectic",
+   "value": "4.44e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P2",
+   "category": "physics",
+   "description": "X(s) affine in every s_i and Y independent of s (incl. loss 0.9, ff gain error 0.03; premise of \u00a77)",
+   "value": "8.88e-16",
+   "criterion": "< 1e-11",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P5",
+   "category": "physics",
+   "description": "analytic loss: native Loss Gamma -> eta Gamma + (1-eta) I; compiled loop loss = sqrt(eta) X_C, eta Y + (1-eta) I",
+   "value": "4.44e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P6",
+   "category": "physics",
+   "description": "finite-squeezing noise exactly Y0 + e^{-2r} Y1 (ideal limit Y0 extracted exactly)",
+   "value": "1.11e-16",
+   "criterion": "< 1e-11",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P10",
+   "category": "physics",
+   "description": "feedforward sign: q=-m keeps the noise O(1); the reversed sign floods it (ratio)",
+   "value": "75.5",
+   "criterion": "> 5",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P11",
+   "category": "physics",
+   "description": "quadrature normalization: vacuum Gamma = I (PhotoGraphiQ; Piquasso hbar=2 covariance/2)",
+   "value": "0",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P12",
+   "category": "engine",
+   "description": "adapter Gaussian conditioning = native GaussianBackend.measure (replayed outcomes, eta_D=0.9)",
+   "value": "4.44e-16",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P13",
+   "category": "engine",
+   "description": "CV-QRC recursion = 12 native Piquasso round trips (loss 0.95, eta_D 0.9), relative",
+   "value": "4.04e-16",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N3a",
+   "category": "numerical",
+   "description": "independent analytic-U NA recursion (ideal squeezing) = PhotoGraphiQ-channel NA features",
+   "value": "1.83e-16",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N3b",
+   "category": "engine",
+   "description": "native PhotoGraphiQ ADAPTIVE trajectories (200 shots, Piquasso gates, outcome-dependent angles) = adapter (max |z|, 9 moments)",
+   "value": "2.4",
+   "criterion": "< 4",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "E0",
+   "category": "engine",
+   "description": "PhotoGraphiQ refuses an unconditional channel for the adaptive pattern (trajectories required)",
+   "value": "refused",
+   "criterion": "refused",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "P7a",
+   "category": "physics",
+   "description": "AD(g=0) trajectories = independent single-path Kalman NA (same innovations); also at g=0.5",
+   "value": "2.66e-15",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P7b",
+   "category": "physics",
+   "description": "law of total variance: Gamma^c_k + Cov(R^c_k) = Gamma^uncond_k (25 clocks, eta_D=0.9)",
+   "value": "3.65e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P7c",
+   "category": "physics",
+   "description": "AD(g=0) Monte Carlo ensemble = exact NA features (max |t| over 150 moments, 10 batches x 4k paths)",
+   "value": "3.53",
+   "criterion": "< 6",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N1",
+   "category": "numerical",
+   "description": "CPU/GPU agreement of adaptive-engine features with identical innovations (relative)",
+   "value": "2.58e-16",
+   "criterion": "< 1e-9",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S8.NA0",
+   "category": "physics",
+   "description": "Theorem 2 on the engine: NA forbidden coefficients (K*, single-delay cubic) / allowed c21, incl. loss, eta, ff error, 10 dB",
+   "value": "9.91e-14",
+   "criterion": "< 1e-09",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S8.CV0",
+   "category": "physics",
+   "description": "Theorem 1 on the engine: CV cross-delay coefficients (c11, K*) / allowed single-delay c3",
+   "value": "1.46e-14",
+   "criterion": "< 1e-09",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N5a",
+   "category": "numerical",
+   "description": "finite differences vs Cauchy contour on allowed coefficients (NA c21 exact; CV c3, h=0.02), relative",
+   "value": "0.000555",
+   "criterion": "< 1e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S8.jit0",
+   "category": "numerical",
+   "description": "jitter recursion at sigma=0 reproduces the exact NA kernels",
+   "value": "1.51e-15",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S8.jit",
+   "category": "physics",
+   "description": "angle jitter breaks Theorem 2 only at O(sigma^2): log-log slope of ||K*_NA|| (relative) vs sigma",
+   "value": "2.01",
+   "criterion": "in [1.8, 2.2]",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N5b",
+   "category": "numerical",
+   "description": "adaptive engine: pathwise Cauchy contour (complex trajectories) vs CRN finite differences, c31(1,0), relative",
+   "value": "0.000374",
+   "criterion": "< 2e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N5c",
+   "category": "numerical",
+   "description": "FD step convergence of the pathwise AD kernel (successive-difference ratio; O(h^2) -> 4)",
+   "value": "3.81",
+   "criterion": "> 2.5",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "P3",
+   "category": "physics",
+   "description": "Gamma + i Omega >= 0: conditional AD trajectories (g=0.5, 10 dB), NA unconditional, CV loop (min eigenvalue)",
+   "value": "0.0167",
+   "criterion": ">= -1e-9",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P4",
+   "category": "physics",
+   "description": "homodyne law: density integrates to 1; whitened sampled outcomes ~ N(0,1) (KS p-value)",
+   "value": "int=1.000000, KS p=0.506",
+   "criterion": "|int-1|<1e-6 and p>1e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P8",
+   "category": "physics",
+   "description": "identity limit: edgeless cluster, s=0, T=1 -> X_C = F per mode, X_C^4 = I",
+   "value": "1.22e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "P9",
+   "category": "physics",
+   "description": "deterministic-measurement limit: EPR state, conditional Var(x) = 1/cosh(2r) -> 0 (analytic)",
+   "value": "2.06e-15",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N2",
+   "category": "numerical",
+   "description": "deterministic seed reproduction (bitwise identical features)",
+   "value": "identical",
+   "criterion": "identical",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N4",
+   "category": "numerical",
+   "description": "batch execution: per-path inputs and complex code path reproduce the scalar-input real run",
+   "value": "1.69e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N6",
+   "category": "numerical",
+   "description": "trajectory-count convergence: block-mean spread ratio for 4x more paths (expect 2 = M^-1/2)",
+   "value": "1.73",
+   "criterion": "in [1.5, 2.7]",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N7",
+   "category": "numerical",
+   "description": "shot-count convergence: raw-feature error vs RB estimate scales as S^slope (expect -0.5)",
+   "value": "-0.511",
+   "criterion": "in [-0.65, -0.3]",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N8",
+   "category": "numerical",
+   "description": "Fock-cutoff convergence",
+   "value": "not applicable: all engines exactly Gaussian (FOCK_CUTOFF=None)",
+   "criterion": "n/a",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N9",
+   "category": "numerical",
+   "description": "time-step convergence",
+   "value": "not applicable: exact discrete-time channels, no integrator",
+   "criterion": "n/a",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N10",
+   "category": "numerical",
+   "description": "checkpoint/resume: interrupted after 2 of 4 units, resumed -> identical results, 2 hits + 2 recomputed",
+   "value": "hits=2, misses=2",
+   "criterion": "identical, 2+2",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N11",
+   "category": "numerical",
+   "description": "diverged trajectories -> NaN scores, failed units stored with reason and counted (no silent removal)",
+   "value": "diverged at clock 7, failure recorded=True",
+   "criterion": "flagged",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S1",
+   "category": "statistical",
+   "description": "no train/test leakage: corrupting test features leaves scaler and lambda selection unchanged; disjoint blocks",
+   "value": "unchanged",
+   "criterion": "unchanged",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S2",
+   "category": "statistical",
+   "description": "seed banks disjoint; confirmatory bank used by no stage other than the research confirmation (ledger)",
+   "value": "overlap=0, confirmatory stages=[]",
+   "criterion": "0, none",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S3",
+   "category": "statistical",
+   "description": "lock manifest hash detects any post-lock retuning (tampered manifest rejected)",
+   "value": "intact=True, tampered accepted=False",
+   "criterion": "True, False",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S4",
+   "category": "statistical",
+   "description": "paired analysis recovers an injected difference of 0.05 (inside 95% CI)",
+   "value": "0.0525 [0.0397, 0.0635]",
+   "criterion": "0.05 in CI",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S5",
+   "category": "statistical",
+   "description": "hierarchical bootstrap SE / analytic nested SE (15 realizations x 3 replicates)",
+   "value": "1.08",
+   "criterion": "in [0.85, 1.15]",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S6",
+   "category": "statistical",
+   "description": "null calibration: family-wise false-positive rate of one-sided Holm over 2 comparisons (4000 null datasets)",
+   "value": "0.046",
+   "criterion": "<= 0.05 + 0.012",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S7",
+   "category": "statistical",
+   "description": "injected effect recovered: simulated Holm power vs noncentral-t lower bound (alpha/2 per test)",
+   "value": "sim 0.999 vs bound 0.997",
+   "criterion": "sim >= bound - 0.03",
+   "passed": true,
+   "critical": true
+  }
+ ],
+ "failed_units": [],
+ "figures": [
+  {
+   "figure": "Fig1_architectures",
+   "caption": "Architecture of the three reservoirs. All three read out the same N(N+1)/2 second moments of N homodyne records through a linear ridge readout. AD differs from NA only by the red outcome-to-basis link (g != 0). Schematic; no data.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_mbqrc_results\\unit\\figures\\Fig1_architectures.png"
+  },
+  {
+   "figure": "Fig2_causal_graph",
+   "caption": "Red: outcome-to-basis links that exist only in R_AD (tap record of clock k-1 to teleportation basis of clock k). Dashed blue: dependence through the quantum state (present in all MB reservoirs). Teleportation outcomes m feed only byproduct displacements and are never used to choose a basis. Severing every red edge gives R_NA exactly. Schematic; no data.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_mbqrc_results\\unit\\figures\\Fig2_causal_graph.png"
+  },
+  {
+   "figure": "Fig4a_kernel_method_validation",
+   "caption": "(a) Forbidden/allowed coefficient ratios from Cauchy contours on the exact NA and CV engines (4 instances: N in [3], 2 realizations, base and lossy conditions); deterministic, no error bars. (b) Exact NA kernel leakage under homodyne-angle jitter (Gauss-Hermite recursion, one realization, N=3). (c) Pathwise AD c31(1,0) at g=0.4 vs FD step (512 CRN paths; differences are paired, so Monte Carlo noise cancels). (d) First clock at which any of 128 trajectories escapes (inf = none within the run).",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_mbqrc_results\\unit\\figures\\Fig4a_kernel_method_validation.png"
+  }
+ ],
+ "env": {
+  "session": "10dadce7419d",
+  "run mode": "unit",
+  "location": "local",
+  "OS": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "CPU": "12th Gen Intel(R) Core(TM) i5-12450HX",
+  "cores (physical/logical)": "8/12",
+  "RAM (GB)": 23.7,
+  "free disk at results dir (GB)": 30.7,
+  "GPU": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "VRAM": "6141 MiB",
+  "driver": "581.86",
+  "CUDA (driver API)": "13.0",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "matplotlib": "3.11.2",
+  "Piquasso": "8.0.1",
+  "PhotoGraphiQ": "0.3.1 @ 6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+  "CuPy": "13.6.0",
+  "PyTorch": "not installed (not needed)",
+  "JAX": "not installed (not needed)",
+  "BLAS": "openblas:12, openblas:12"
+ }
+}

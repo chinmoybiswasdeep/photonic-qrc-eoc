@@ -1,0 +1,40 @@
+{
+ "calibration": {
+  "calibration": [
+   0,
+   1,
+   2,
+   3
+  ]
+ },
+ "exploration": {
+  "level-A screening": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "structural scan": [
+   0,
+   1,
+   2,
+   3
+  ]
+ },
+ "validation": {
+  "structural validation": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ]
+ }
+}

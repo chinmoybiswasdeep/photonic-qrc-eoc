@@ -1,0 +1,71 @@
+{
+ "stage": "structural",
+ "g_star": null,
+ "T_star": null,
+ "reason": "no admissible g>0 with a resolved chi_vis^wh on the stable side",
+ "created": "2026-10-04 02:12:58",
+ "graph": "2 wires x 3 layers, in-layer chain C_Z (w=1.0)",
+ "sizes": {
+  "N_main": 2,
+  "N_second": 3,
+  "L": 3
+ },
+ "controller": "nearest-neighbour causal flow",
+ "spectral_boundary": "g_traj: lambda_1^CI = 0 (primary); g_contract, g_gap, g_purif reported",
+ "kernel_family": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   0
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   2,
+   0
+  ],
+  [
+   2,
+   1
+  ]
+ ],
+ "measurement_map": "B_meas = (1-T) x xx-block of the post-wire second moments (exact, fixed tap)",
+ "feature_set": "N(N+1)/2 tap second moments",
+ "witness": "(1/sqrt 6) sum P3(u_{k-tc}) P1(u_{k-tl}) over K*",
+ "noise": {
+  "shots": 64,
+  "squeezing_db": 12.0,
+  "loop_transmissivity": 1.0,
+  "detector_efficiency": 1.0,
+  "angle_jitter": 0.0,
+  "feedforward_gain_error": 0.0
+ },
+ "readout_policy": "ridge, lambda grid [1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0] chosen on the last 25% of train; degree-2 family on label-free PCA",
+ "sigma_sha256": "a887708205123b6025535d465e9afff685378b9e5ac2ac89bda895b1188878f6",
+ "preregistered": {
+  "theta_min": 0.15,
+  "controller": "nearest-neighbour causal flow",
+  "witness_max_delay": 2,
+  "escape_cov": 1000000.0,
+  "escape_mean": 1000.0,
+  "escape_pmax": 0.01,
+  "channel_margin": 0.02,
+  "snr_min": 5.0,
+  "whitening_eps_rel": 1e-06,
+  "ridge_struct_rel": 0.001,
+  "zero_tol_rel": 1e-09,
+  "alpha": 0.05,
+  "power_target": 0.9,
+  "delta_min_floor": 0.02
+ },
+ "sha256": "9bebf18174a4604cb9cf002df68501fe37b27e80ce2018da74ea52fbe76e2a26"
+}

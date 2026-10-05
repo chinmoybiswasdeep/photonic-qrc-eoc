@@ -1,0 +1,29 @@
+{
+ "calibration": {
+  "calibration": [
+   0
+  ]
+ },
+ "exploration": {
+  "exploration": [
+   0,
+   1
+  ]
+ },
+ "pilot": {
+  "pilot": [
+   0,
+   1,
+   2
+  ]
+ },
+ "confirmation": {
+  "confirmation": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+}

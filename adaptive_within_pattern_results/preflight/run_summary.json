@@ -1,0 +1,717 @@
+{
+ "mode": "preflight",
+ "decision": "NO-GO",
+ "reasons": [
+  "critical gate failed: Stability",
+  "critical gate failed: Internal response",
+  "critical gate failed: Measurement visibility",
+  "critical gate failed: Size replication"
+ ],
+ "ladder": {
+  "0": {
+   "status": "established",
+   "evidence": "all cells executed"
+  },
+  "1": {
+   "status": "established",
+   "evidence": "50/50 tests; critical failures none"
+  },
+  "2": {
+   "status": "established",
+   "evidence": "within-pattern Outcome-dependent angles (native), CV-flow certificate, exact nesting"
+  },
+  "3": {
+   "status": "established",
+   "evidence": "CI/CR spectra validated (L1-L13); channel exact at g=0, ensemble-tangent estimate otherwise (L14)"
+  },
+  "4": {
+   "status": "established (finite-size crossover)",
+   "evidence": "g_traj(T) = {0.2: 0.500000171475312, 0.4: 0.30000007236356036, 0.6: 0.3000000310447479, 0.8: 0.29008004040854424}"
+  },
+  "5": {
+   "status": "not resolved",
+   "evidence": "chi_int SNR (validation) 2.38"
+  },
+  "6": {
+   "status": "not supported",
+   "evidence": "chi_vis^wh SNR 1.86 (validation), 1.86 (N=4)"
+  },
+  "7": {
+   "status": "blocked by the structural stage",
+   "evidence": "confirmatory task data not collected"
+  },
+  "8": {
+   "status": "blocked by the structural stage",
+   "evidence": "confirmatory task data not collected"
+  },
+  "9": {
+   "status": "blocked by the structural stage",
+   "evidence": "confirmatory task data not collected"
+  },
+  "10": {
+   "status": "blocked by the structural stage",
+   "evidence": "confirmatory task data not collected"
+  }
+ },
+ "lock": {
+  "stage": "structural",
+  "g_star": 0.3,
+  "T_star": 0.6,
+  "chi_wh": 0.0014307111680047814,
+  "chi_wh_se": 0.0007635996942714387,
+  "at_grid_boundary": false,
+  "g_traj_at_T": 0.3000000310447479,
+  "created": "2026-10-04 02:30:33",
+  "graph": "3 wires x 3 layers, in-layer chain C_Z (w=1.0)",
+  "sizes": {
+   "N_main": 3,
+   "N_second": 4,
+   "L": 3
+  },
+  "controller": "nearest-neighbour causal flow",
+  "spectral_boundary": "g_traj: lambda_1^CI = 0 (primary); g_contract, g_gap, g_purif reported",
+  "kernel_family": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ]
+  ],
+  "measurement_map": "B_meas = (1-T) x xx-block of the post-wire second moments (exact, fixed tap)",
+  "feature_set": "N(N+1)/2 tap second moments",
+  "witness": "(1/sqrt 6) sum P3(u_{k-tc}) P1(u_{k-tl}) over K*",
+  "noise": {
+   "shots": 512,
+   "squeezing_db": 12.0,
+   "loop_transmissivity": 1.0,
+   "detector_efficiency": 1.0,
+   "angle_jitter": 0.0,
+   "feedforward_gain_error": 0.0
+  },
+  "readout_policy": "ridge, lambda grid [1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0] chosen on the last 25% of train; degree-2 family on label-free PCA",
+  "sigma_sha256": "2da706d2b1414679215370420e935f8fdd23e9969bcbb1ac8c429e8323d579aa",
+  "preregistered": {
+   "theta_min": 0.15,
+   "controller": "nearest-neighbour causal flow",
+   "witness_max_delay": 2,
+   "escape_cov": 1000000.0,
+   "escape_mean": 1000.0,
+   "escape_pmax": 0.01,
+   "channel_margin": 0.02,
+   "snr_min": 5.0,
+   "whitening_eps_rel": 1e-06,
+   "ridge_struct_rel": 0.001,
+   "zero_tol_rel": 1e-09,
+   "alpha": 0.05,
+   "power_target": 0.9,
+   "delta_min_floor": 0.02
+  },
+  "sha256": "118f3312e25bc68b0ab53013b46674625a7fc6fde98a6f25684c3431ede58632"
+ },
+ "runtime": {
+  "expected_h": 142.09733347866012,
+  "conservative_h": 192.32905478157252,
+  "stages_h": {
+   "calibration": 0.15555555555555556,
+   "structural exploration scan": 85.60646832118667,
+   "finite-size spectra": 4.285882525921253,
+   "structural validation (2 sizes) + controls": 1.892087552364338,
+   "task pilot": 3.8518554173161585,
+   "confirmation (2 sizes)": 27.046207019735366,
+   "robustness": 19.25927708658079
+  },
+  "bottleneck": "structural exploration scan",
+  "measured_unit_s": {
+   "stab": 6.280199049971998,
+   "lyap": 2.0729052500100806,
+   "chan": 1.4056598499882966,
+   "kern": 12.929103799979202
+  },
+  "spread": 1.0411555455210137,
+  "peak_ram_gb": 2.33,
+  "peak_vram_gb": 0.12,
+  "checkpoint_gb": 0.28,
+  "native_fraction": 0.0018699765843807935,
+  "gpu_fraction": 0.5574335834458195
+ },
+ "tests": [
+  {
+   "id": "V1",
+   "category": "engine",
+   "description": "exact replay: native PhotoGraphiQ (gaussian & piquasso backends) = adapter = independent reference (conditional means, covariances, log-likelihoods; adaptive g, eta, loss, ff error)",
+   "value": "2.84e-14",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V2",
+   "category": "physics",
+   "description": "native layered NA channel affine in the layer-1 shears with s-independent noise (incl. loss 0.9, ff error 0.03): premise of Theorem 2",
+   "value": "2.22e-16",
+   "criterion": "< 1e-11",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V11",
+   "category": "physics",
+   "description": "analytic loss on the retained modes: X -> sqrt(eta) X, Y -> eta Y + (1-eta) I",
+   "value": "1.11e-16",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V12",
+   "category": "physics",
+   "description": "finite-squeezing structure of the layered channel: Y(r) = Y0 + e^{-2r} Y1 (ideal limit exact)",
+   "value": "1.11e-16",
+   "criterion": "< 1e-9",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V3",
+   "category": "engine",
+   "description": "native sampled teleportation outcomes (400 adaptive trajectories) whitened by the adapter's exact predictive law ~ N(0,1) (KS p)",
+   "value": "0.438",
+   "criterion": "> 1e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V4",
+   "category": "engine",
+   "description": "ensemble tap features: native run_shots (400) vs adapter (100k paths), max |z| over 6 moments",
+   "value": "1.63",
+   "criterion": "< 4",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V5",
+   "category": "physics",
+   "description": "causal validity: native command DAG acyclic and consistent with measurement order; native CV-flow certificate (Booth & Markham) exists for the layered order",
+   "value": "DAG ok=True, certificate residual=1.2029279712572748e-16",
+   "criterion": "both",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V6",
+   "category": "physics",
+   "description": "zero-adaptivity nesting: AD(g=0) bitwise = fixed-angle NA in the same code path; ensemble = exact native NA channel (max |t|, 10x4k)",
+   "value": "bitwise=True, theta(g=0)-theta0=0.0e+00, max|t|=3.24",
+   "criterion": "bitwise, <1e-14, <6",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V7",
+   "category": "physics",
+   "description": "safe angles under an extreme gain g=50: min |sin theta| >= sin(theta_min)",
+   "value": "0.1494 vs 0.1494",
+   "criterion": ">=",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V8",
+   "category": "physics",
+   "description": "recurrence: a change of rho_k is visible in the features of later clocks and fades (|dx| at k=1, k=11)",
+   "value": "1.74e-01, 1.16e-03",
+   "criterion": "dx_1 > 1e-6 and decreasing",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V9",
+   "category": "physics",
+   "description": "physicality of conditional AD states (g=2): min eig(Gamma + i Omega) over sampled clocks",
+   "value": "-3.68e-15",
+   "criterion": ">= -1e-9",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V13",
+   "category": "engine",
+   "description": "CV-QRC recursion = 10 native Piquasso round trips (eta 0.9), relative",
+   "value": "3.17e-16",
+   "criterion": "< 1e-10",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "V10",
+   "category": "physics",
+   "description": "measurement-probability normalization of the homodyne law",
+   "value": "0",
+   "criterion": "< 1e-8",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N1",
+   "category": "numerical",
+   "description": "CPU/GPU agreement of the adaptive engine with identical host innovations (relative)",
+   "value": "1.61e-12",
+   "criterion": "< 1e-9",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L1",
+   "category": "spectrum",
+   "description": "constant linear map diag(e^a): QR exponents = a (burn 200, K 2000)",
+   "value": "5.2e-14",
+   "criterion": "< 1e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L2",
+   "category": "spectrum",
+   "description": "block-diagonal constant map: full spectrum = log|eigenvalues| (non-normal block included)",
+   "value": "0.000463",
+   "criterion": "< 5e-3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L3",
+   "category": "spectrum",
+   "description": "contractive stochastic map a_k ~ U(0.2,0.9): exponent = E log a (analytic)",
+   "value": "0.00114",
+   "criterion": "< 0.01",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L4",
+   "category": "spectrum",
+   "description": "unstable stochastic map a_k ~ U(1.1,2.0): exponent = E log a > 0 (analytic)",
+   "value": "0.000258",
+   "criterion": "< 0.01",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L5",
+   "category": "spectrum",
+   "description": "exact complex-step Jacobian of the adaptive clock map (CI, g=1.5) vs central finite differences",
+   "value": "4.87e-10",
+   "criterion": "< 1e-6",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L6",
+   "category": "spectrum",
+   "description": "basis invariance (random linear change of coordinates): sum and top exponent over 60 clocks",
+   "value": "0.0151",
+   "criterion": "< 0.1",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L7",
+   "category": "spectrum",
+   "description": "QR-interval invariance (q=1 vs q=2, same Jacobians)",
+   "value": "4.44e-16",
+   "criterion": "< 1e-5",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L12",
+   "category": "spectrum",
+   "description": "short-time (8 clocks) QR vs direct singular values: sum of exponents = log|det|/K exactly; top within O(1/K)",
+   "value": "sum 1.1e-14, top 0.117",
+   "criterion": "sum < 1e-8, top < 0.3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L8",
+   "category": "spectrum",
+   "description": "burn-in convergence of lambda_1^CI (50 vs 150 clocks)",
+   "value": "0.0161",
+   "criterion": "< 4 SE + 0.02",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "L9",
+   "category": "spectrum",
+   "description": "trajectory-length convergence of lambda_1^CI (200 vs 400 clocks)",
+   "value": "0.000113",
+   "criterion": "< 4 SE + 0.02",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "L10",
+   "category": "spectrum",
+   "description": "trajectory-count convergence of lambda_1^CI (4 vs 8 paths, new seed)",
+   "value": "0.00701",
+   "criterion": "< 4 SE + 0.02",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "L11",
+   "category": "spectrum",
+   "description": "CPU/GPU agreement of the CR spectrum",
+   "value": "2.22e-15",
+   "criterion": "< 1e-8",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L13",
+   "category": "spectrum",
+   "description": "consistency: predecessor-style scalar common-innovation exponent vs lambda_1^CI",
+   "value": "-0.2724 vs -0.2616",
+   "criterion": "|diff| < 4 SE + 0.05",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "K1",
+   "category": "physics",
+   "description": "Theorem 2 on the native layered channel: K* and single-delay-cubic coefficients vanish (internal AND visible; loss, eta, ff, 9 dB)",
+   "value": "2.94e-10",
+   "criterion": "< 1e-09",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K2",
+   "category": "physics",
+   "description": "Theorem 1 on the CV engine: cross-delay coefficients vanish",
+   "value": "1.23e-14",
+   "criterion": "< 1e-09",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K3",
+   "category": "physics",
+   "description": "Corollary 2a: any other FIXED nonadaptive later-layer basis also has exactly zero K* (3 random bases per size)",
+   "value": "1.11e-11",
+   "criterion": "< 1e-09",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K4",
+   "category": "numerical",
+   "description": "finite differences vs Cauchy contour on an allowed NA coefficient (c21, exact multi-quadratic; FD round-off ~ eps/h^3)",
+   "value": "1.08e-08",
+   "criterion": "< 1e-6",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K5",
+   "category": "numerical",
+   "description": "FD step convergence of the pathwise AD internal kernel (successive-difference ratio; O(h^2) -> 4)",
+   "value": "3.97",
+   "criterion": "> 2.5",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "K6",
+   "category": "numerical",
+   "description": "trajectory convergence: block-mean spread ratio for 4x more paths (expect 2)",
+   "value": "1.65",
+   "criterion": "in [1.3, 2.9]",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "K7",
+   "category": "statistical",
+   "description": "null calibration at g=0: Monte Carlo chi_vis^wh consistent with the exact zero (|z|)",
+   "value": "0.777",
+   "criterion": "< 3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K8",
+   "category": "physics",
+   "description": "measurement map is exactly linear: K^vis = (1-T) [H]_xx per path (relative error; FD round-off)",
+   "value": "4.84e-10",
+   "criterion": "< 1e-8",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "K9",
+   "category": "physics",
+   "description": "Corollary 2a (stochastic): i.i.d. input-independent later-layer angles keep chi_vis^wh at zero (|z|)",
+   "value": "1.11",
+   "criterion": "< 3",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "L14",
+   "category": "spectrum",
+   "description": "ensemble-tangent channel estimator at g=0 vs the exact native channel spectrum (leading exponent)",
+   "value": "-0.238 vs -0.204",
+   "criterion": "|diff| < 0.15",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "S2",
+   "category": "statistical",
+   "description": "five seed banks pairwise disjoint; confirmation bank used by no stage other than 'confirmation' (ledger)",
+   "value": "disjoint=True, confirmation stages=[]",
+   "criterion": "True, none",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S1",
+   "category": "statistical",
+   "description": "no train/test leakage: corrupting test features leaves scaler, PCA and lambda selection unchanged",
+   "value": "unchanged",
+   "criterion": "unchanged",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S3",
+   "category": "statistical",
+   "description": "confirmatory-lock enforcement: a tampered lock manifest is rejected",
+   "value": "intact=True, tampered accepted=False",
+   "criterion": "True, False",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S4",
+   "category": "statistical",
+   "description": "paired analysis recovers an injected difference 0.05 (inside the 95% CI)",
+   "value": "0.0525 [0.0397, 0.0635]",
+   "criterion": "in CI",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S5",
+   "category": "statistical",
+   "description": "hierarchical bootstrap SE / analytic nested SE",
+   "value": "1.08",
+   "criterion": "in [0.85, 1.15]",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S6",
+   "category": "statistical",
+   "description": "null calibration: family-wise false-positive rate of one-sided Holm over 2 comparisons (4000 null datasets)",
+   "value": "0.046",
+   "criterion": "<= alpha + 0.012",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "S7",
+   "category": "statistical",
+   "description": "injected effect recovered with the predicted power (simulated Holm vs noncentral-t bound)",
+   "value": "0.999 vs 0.997",
+   "criterion": "sim >= bound - 0.03",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N2",
+   "category": "numerical",
+   "description": "deterministic seed reproduction (bitwise)",
+   "value": "identical",
+   "criterion": "identical",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N4",
+   "category": "numerical",
+   "description": "scalar/batch agreement: per-path inputs and the complex code path reproduce the scalar-input run",
+   "value": "1.23e-15",
+   "criterion": "< 1e-12",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N7",
+   "category": "numerical",
+   "description": "shot convergence: raw-feature error vs RB scales as S^slope (expect -0.5)",
+   "value": "-0.512",
+   "criterion": "in [-0.7, -0.3]",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N12",
+   "category": "numerical",
+   "description": "sequence convergence of the visible kernel: 16 vs 24 clocks of history differ by at most z standard errors (noise streams not aligned; relative gap 1.43)",
+   "value": "1.88",
+   "criterion": "max |z| < 4",
+   "passed": true,
+   "critical": false
+  },
+  {
+   "id": "N10",
+   "category": "numerical",
+   "description": "checkpoint/resume: interrupted after 2 of 4 units then resumed -> identical results (2 reused + 2 recomputed)",
+   "value": "hits=2, misses=2",
+   "criterion": "identical, 2+2",
+   "passed": true,
+   "critical": true
+  },
+  {
+   "id": "N11",
+   "category": "numerical",
+   "description": "no silent removal: escaped trajectories are counted (and excluded from averages), failed units stored with reason",
+   "value": "escaped 32/32 at g=5 (first clock 1); failure recorded=True",
+   "criterion": "counted",
+   "passed": true,
+   "critical": true
+  }
+ ],
+ "failed_units": [],
+ "figures": [
+  {
+   "figure": "Fig01_architectures",
+   "caption": "Mode preflight. Left: the audited predecessor fed a tap outcome of clock k-1 into clock k. Right: the corrected clock, in which every outcome-to-basis edge (red) points to a later measurement of the same clock; the retained modes carry the recurrent state. Schematic, no data.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig01_architectures.png"
+  },
+  {
+   "figure": "Fig02_causal_dependency_graph",
+   "caption": "Mode preflight. Measurement commands of one native clock pattern and their dependency closure (transitively reduced). Red: edges into measurements whose angle is an Outcome expression (adaptive). Grey: byproduct/quantum dependencies. Native data, no Monte Carlo.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig02_causal_dependency_graph.png"
+  },
+  {
+   "figure": "Fig03_native_adapter_reference",
+   "caption": "Mode preflight. Left: 4 replayed native trajectories (gaussian and piquasso backends; adaptive g, eta, loss, ff error); dashed: 1e-10 tolerance. Right: native teleportation outcomes from 400 adaptive trajectories, whitened by the adapter's exact predictive law, against N(0,1).",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig03_native_adapter_reference.png"
+  },
+  {
+   "figure": "Fig04_safe_angle_distributions",
+   "caption": "Mode preflight; N=3, L=3, T=0.2; 256 trajectories x 160 clocks; red: safe bounds theta_min, pi - theta_min. At g=0 the later angles are the fixed baselines; large g pushes angles towards the bounds (large shears).",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig04_safe_angle_distributions.png"
+  },
+  {
+   "figure": "Fig05_stability_map",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Upper bound: one-sided Clopper-Pearson over pooled trajectories x realizations; admissible = bound < 0.01 and Lambda_1^ch <= -0.02, physical, safe angles.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig05_stability_map.png"
+  },
+  {
+   "figure": "Fig06_CI_spectra",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Full CI spectra of z=(r, vech Gamma) (dimension 27); mean over valid paths and realizations; paths that escaped are excluded and counted.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig06_CI_spectra.png"
+  },
+  {
+   "figure": "Fig07_CR_spectra",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Full CR spectra of z=(r, vech Gamma) (dimension 27); mean over valid paths and realizations; paths that escaped are excluded and counted.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig07_CR_spectra.png"
+  },
+  {
+   "figure": "Fig08_channel_and_leading_exponents",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Per clock. inf = all spectrum paths escaped. '-' = channel estimate unresolved above the Monte Carlo floor.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig08_channel_and_leading_exponents.png"
+  },
+  {
+   "figure": "Fig09_10_gap_N0_purification",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Gap = lambda_1 - lambda_2; N0 = number of |lambda_i| < 0.05; purification = e-folding time of the conditional-entropy difference between a thermal-initialized and a vacuum-initialized filter on a common record.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig09_10_gap_N0_purification.png"
+  },
+  {
+   "figure": "Fig12_15_susceptibility_maps",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. U-statistic estimates (unbiased, can be negative from noise); computed only at points with no escape. SNR = mean / SE with SE = max(Monte Carlo jackknife, between-realization).",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig12_15_susceptibility_maps.png"
+  },
+  {
+   "figure": "Fig16_internal_vs_visible",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Each point one (g,T) cell; negative U-statistics clipped for the log axes only.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig16_internal_vs_visible.png"
+  },
+  {
+   "figure": "Fig11_finite_size_gap",
+   "caption": "Mode preflight; CI spectra at T=0.6, sizes N=[2, 3, 4], L=3; 2 exploration realizations x 3 paths x 400 clocks; means. Verdict: finite-size crossover (best scaling fit unphysical: g_c outside the scanned range or nu, z out of bounds). EXPLORATORY.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig11_finite_size_gap.png"
+  },
+  {
+   "figure": "Fig17_admissible_region_and_lock",
+   "caption": "Mode preflight; N=3 wires, L=3 layers; 2 exploration realizations per cell; stability: 256 trajectories x 3200 clocks; spectra: 6 paths x 400 clocks (burn 100); kernels: 1024 CRN paths x 16 clocks; EXPLORATORY. Black ticks: interpolated trajectory boundary g_traj(T) where lambda_1^CI = 0. The lock uses no task score.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig17_admissible_region_and_lock.png"
+  },
+  {
+   "figure": "Fig18_locked_point_validation",
+   "caption": "Mode preflight; locked (g*,T*)=(0.3,0.6); exploration (2 realizations), validation bank (4), second size (2), controls (3); 1024 CRN paths x 16 clocks each; 95% CI from max(jackknife, between-realization) SE. Exploration is EXPLORATORY; validation is the independent structural test.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig18_locked_point_validation.png"
+  },
+  {
+   "figure": "Fig27_runtime_projection",
+   "caption": "Mode preflight; projection from 48 measured structural units (median unit times {'stab': 6.280199049971998, 'lyap': 2.0729052500100806, 'chan': 1.4056598499882966, 'kern': 12.929103799979202}); conservative = expected x 1.3 x 1.04 (90th/50th percentile). Red: budget.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig27_runtime_projection.png"
+  },
+  {
+   "figure": "Fig28_gate_dashboard",
+   "caption": "Mode preflight; machine-generated from this run's tests and structural/task results; critical gates: Native fidelity, Causal validity, Zero-adaptivity nesting, Safe angles, Physicality, Stability, Full Lyapunov spectrum, CI/CR separation, Spectral boundary, Internal response, Measurement visibility, Regularization visibility, Size replication, No fixed-basis shortcut, Structural lock, Research dry run, Reproducibility.",
+   "file": "D:\\Research\\QML\\results_1\\photonic-qrc-eoc\\adaptive_within_pattern_results\\preflight\\figures\\Fig28_gate_dashboard.png"
+  }
+ ],
+ "env": {
+  "session": "83d1c2b32b0c",
+  "run mode": "preflight",
+  "location": "local",
+  "OS": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "CPU": "12th Gen Intel(R) Core(TM) i5-12450HX",
+  "cores (physical/logical)": "8/12",
+  "RAM (GB)": 23.7,
+  "free disk at results dir (GB)": 30.7,
+  "GPU": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "VRAM": "6141 MiB",
+  "driver": "581.86",
+  "CUDA (driver API)": "13.0",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "matplotlib": "3.11.2",
+  "Piquasso": "8.0.1",
+  "PhotoGraphiQ": "0.3.1 @ 6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+  "CuPy": "13.6.0",
+  "PyTorch": "not installed (not needed)",
+  "JAX": "not installed (not needed)",
+  "BLAS": "openblas:12, openblas:12"
+ },
+ "code_hash": "96200eceb64c015562a731960259987cab70c82910b7378b88babbe159baebde"
+}

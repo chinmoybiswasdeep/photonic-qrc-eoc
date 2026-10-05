@@ -1,0 +1,385 @@
+{
+ "decision": "NO-GO",
+ "reasons": [
+  "critical gate failed or not evaluable: native / adapter agreement",
+  "critical gate failed or not evaluable: cutoff convergence",
+  "critical gate failed or not evaluable: Fock-boundary population",
+  "critical gate failed or not evaluable: Level-A ideal screening interaction",
+  "critical gate failed or not evaluable: physical cubic teleportation (Level B)",
+  "critical gate failed or not evaluable: non-Gaussianity certified",
+  "critical gate failed or not evaluable: chi_wh^x validation SNR >= 5",
+  "critical gate failed or not evaluable: controls do not reproduce the response; gamma=0 exactly null",
+  "critical gate failed or not evaluable: locked without task data, not at grid boundary",
+  "critical gate failed or not evaluable: hierarchical stability of every arm (validation bank)",
+  "critical gate failed or not evaluable: Delta_B > 0",
+  "critical gate failed or not evaluable: Delta_C > 0",
+  "critical gate failed or not evaluable: no strong futility (95% upper bounds >= delta_min)",
+  "critical gate failed or not evaluable: prospective confirmatory power",
+  "research_dryrun: control-flow validation only - this decision is not scientific"
+ ],
+ "gates": [
+  {
+   "group": "physics",
+   "gate": "trace / Hermiticity",
+   "requirement": "< 1e-10",
+   "evidence": "E7a",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "minimum eigenvalue",
+   "requirement": "> -1e-9",
+   "evidence": "E7b",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "outcome probabilities normalized",
+   "requirement": "within 1e-8",
+   "evidence": "E7c",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "native / adapter agreement",
+   "requirement": "< 1e-8 (E4: extrapolated native limit)",
+   "evidence": "E1-E6",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "causal MBQC ordering",
+   "requirement": "adaptive angles depend only on earlier outcomes",
+   "evidence": "E12",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "exact nesting",
+   "requirement": "bitwise",
+   "evidence": "E8",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "physics",
+   "gate": "CPU/GPU agreement",
+   "requirement": "< 1e-8",
+   "evidence": "E11 (gpu)",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "cutoff convergence",
+   "requirement": "< 2% between the two largest cutoffs",
+   "evidence": "{'chi_int_x': 0.13922280003483742, 'chi_wh_x': 0.47380140300116935, 'chi_vis_x': 0.6331230809367088}",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "Fock-boundary population",
+   "requirement": "< 1e-5",
+   "evidence": "{'G-NA': 6.781757782595703e-06, 'G-AD': 6.781757782595703e-06, 'NG-NA': 1.002294696903468e-05, 'NG-AD': 3.729794371294048e-06}",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "homodyne-quadrature convergence",
+   "requirement": "E13",
+   "evidence": "E13",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "group": "convergence",
+   "gate": "measurement-trajectory convergence",
+   "requirement": "exploration vs validation chi_wh^x within 3 combined SE",
+   "evidence": "lock",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "Lyapunov spectra (length, basis, QR interval, perturbation size)",
+   "requirement": "L1-L4 + length",
+   "evidence": "L1-L4",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "Lyapunov-length convergence",
+   "requirement": "leading CI exponent spread across independent trajectories < 0.05",
+   "evidence": "None",
+   "status": "NOT EVALUATED",
+   "critical": false
+  },
+  {
+   "group": "convergence",
+   "gate": "derivative-step / stencil convergence",
+   "requirement": "K1, K2",
+   "evidence": "K1, K2",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "convergence",
+   "gate": "no point silently excluded",
+   "requirement": "failed units listed; escapes counted",
+   "evidence": "0 failed units",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "Level-A ideal screening interaction",
+   "requirement": "chi_int^x, chi_wh^x SNR >= 3 at an admissible point",
+   "evidence": "no admissible screening point (some arm unstable at every gamma)",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "physical cubic teleportation (Level B)",
+   "requirement": "screening pass rule under BASE_B",
+   "evidence": "Level B pass = False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "non-Gaussianity certified",
+   "requirement": "> numerical and finite-shot uncertainty",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "chi_int^x validation SNR >= 3",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "chi_wh^x validation SNR >= 5",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "second size chi_wh^x SNR >= 3",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "controls do not reproduce the response; gamma=0 exactly null",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "survives measurement map and ridge (chi_res/chi_vis >= 0.1)",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "locked without task data, not at grid boundary",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "hierarchical stability of every arm (validation bank)",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "structural",
+   "gate": "physical sample cost practical",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "Delta_A > 0",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "Delta_B > 0",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "Delta_C > 0",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "Delta_int > 0",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "no strong futility (95% upper bounds >= delta_min)",
+   "requirement": "",
+   "evidence": "False",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "pilot",
+   "gate": "equal postselection, features, shots (by construction)",
+   "requirement": "",
+   "evidence": "True",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "feasibility",
+   "gate": "prospective confirmatory power",
+   "requirement": ">= 0.9",
+   "evidence": "0.4625",
+   "status": "FAIL",
+   "critical": true
+  },
+  {
+   "group": "feasibility",
+   "gate": "conservative runtime",
+   "requirement": "<= 72 h",
+   "evidence": "859.6 h",
+   "status": "FAIL",
+   "critical": false
+  },
+  {
+   "group": "feasibility",
+   "gate": "RAM / VRAM / disk",
+   "requirement": "fit the machine",
+   "evidence": "1.3 GB RAM",
+   "status": "PASS",
+   "critical": false
+  },
+  {
+   "group": "feasibility",
+   "gate": "checkpoint / resume",
+   "requirement": "N1",
+   "evidence": "N1",
+   "status": "PASS",
+   "critical": true
+  },
+  {
+   "group": "feasibility",
+   "gate": "research dry run, same code hash",
+   "requirement": "marker matches",
+   "evidence": "marker found and matching",
+   "status": "PASS",
+   "critical": true
+  }
+ ],
+ "lock": {
+  "level": "B",
+  "variant": "V1",
+  "gamma_star": 0.1,
+  "T_star": 0.4,
+  "cutoff": 16,
+  "second_size": {
+   "N": 2,
+   "D": 10
+  },
+  "condition": {
+   "squeezing_db": 12.0,
+   "enc_scale": 0.6,
+   "beta_scale": 0.5,
+   "loop_transmissivity": 0.98,
+   "layer_efficiency": 0.95,
+   "tap_efficiency": 0.95,
+   "homodyne_resolution": 0.01,
+   "ff_gain_error": 0.01,
+   "resource_squeezing_db": 6.0,
+   "resource_loss": 0.98,
+   "coupling_w": 0.5
+  },
+  "sigma": {
+   "m1": 4.136368514495393,
+   "filt": 2.327725543866509,
+   "byp": 2.3177567048752294
+  },
+  "witness_component": [
+   1,
+   0,
+   0
+  ],
+  "at_grid_boundary": true,
+  "shortlist": {
+   "(0.1, 0.4)": 0.4138826044200114,
+   "(0.2, 0.6)": 0.24094019556918445
+  },
+  "selection_rule": "max validated chi_wh^x among the two admissible scan points with the largest exploration chi_wh^x; no task data",
+  "config_sha256": "a9e94aa7c7e0b9e078ec66fd484d77908319f1ca90c4319171f38c4fc9c64eca",
+  "prereg_core_hash": "fbfaf08d8ea623f7be27b2974caf8cde07cc4c22d4e7c5c38141bd5b5c7ef82a",
+  "prefix_hash": "a9362ae815eaf5deffc06296a7eab4504619c25ff3ee093f70cc291266603960",
+  "mode": "research_dryrun",
+  "sha256": "1cdbd55374f1034d3e18729c9e9db10103611b7ad1408774dd5f6c962602a7f9"
+ },
+ "structural": {
+  "1 native/adapter agreement (E1-E6)": false,
+  "2 exact nesting (E8)": true,
+  "3 causal MBQC ordering (E12)": true,
+  "4 Level-A screening passed": false,
+  "5 non-Gaussianity certified": false,
+  "6 cutoff convergence (<2%, boundary < 1e-5)": false,
+  "7 density-matrix spectra validated (L1-L6)": true,
+  "8 chi_int^x validation SNR >= 3": true,
+  "9 chi_wh^x validation SNR >= 5": false,
+  "10 second size chi_wh^x SNR >= 3": true,
+  "11 controls do not reproduce the response; gamma=0 exactly null": false,
+  "12 survives measurement map and ridge (chi_res/chi_vis >= 0.1)": true,
+  "13 locked without task data, not at grid boundary": false,
+  "14 hierarchical stability of every arm (validation bank)": false,
+  "15 physical sample cost practical": true,
+  "16 research dry run passed (same code hash)": true
+ },
+ "mode": "research_dryrun",
+ "prefix_hash": "a9362ae815eaf5deffc06296a7eab4504619c25ff3ee093f70cc291266603960",
+ "prereg_core_hash": "fbfaf08d8ea623f7be27b2974caf8cde07cc4c22d4e7c5c38141bd5b5c7ef82a",
+ "gate_code_hash": "b31a2228f5b8f990f852ae87478acb0b6e8f5bb5cd93295546b167d1f917b817"
+}
